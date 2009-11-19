@@ -11,6 +11,7 @@
 
 @implementation NSThread (BPFoundationExtensions)
 
+#if NS_BLOCKS_AVAILABLE
 + (void)_performBlock:(void (^)())block {
 	block();
 }
@@ -38,5 +39,6 @@
 - (void)perform:(void (^)())block waitUntilDone:(BOOL)wait {
 	[self performSelector:@selector(_performBlock:) onThread:self withObject:[block copy] waitUntilDone:wait];
 }
+#endif
 
 @end

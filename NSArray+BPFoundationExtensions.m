@@ -6,6 +6,8 @@
 //  Copyright 2009 Ballistic Pigeon, LLC. All rights reserved.
 //
 
+#import "NSArray+BPFoundationExtensions.h"
+
 @implementation NSArray (BPFoundationExtensions)
 
 #if NS_BLOCKS_AVAILABLE

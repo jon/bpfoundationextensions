@@ -7,6 +7,8 @@
  *
  */
 
+#import <Foundation/Foundation.h>
+
 @interface NSSet (BPFoundationExtensions)
 
 - (NSSet *)setByIntersectingWithSet:(NSSet *)other;

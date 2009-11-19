@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface NSMutableArray (BPFoundationExtensions)
 
 #if NS_BLOCKS_AVAILABLE
