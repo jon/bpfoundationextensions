@@ -6,12 +6,20 @@
 //  Copyright 2009 Ballistic Pigeon, LLC. All rights reserved.
 //
 
-#import <PLBlocks/Block.h>
 
 @interface NSArray (BPFoundationExtensions)
 
 - (NSArray *)map:(id (^)(id))block;
-- (NSArray *)inject:(id (^)(id, id))block withInitialValue:(id)value;
+- (NSArray *)select:(BOOL (^)(id))block;
+- (NSArray *)reject:(BOOL (^)(id))block;
+- (id)reduce:(id (^)(id, id))block withInitialValue:(id)value;
+
+- (NSArray *)sort:(NSComparisonResult (^)(id, id))comparator;
+
+- (NSArray *)reversedArray;
+- (NSArray *)shuffledArray;
+- (NSArray *)sortedArray;
+- (NSArray *)flattenedArray;
 
 - (NSArray *)mapSelector:(SEL)selector;
 - (NSArray *)mapSelector:(SEL)selector withArgument:(id)argument;
