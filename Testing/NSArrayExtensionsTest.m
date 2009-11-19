@@ -24,6 +24,9 @@
 		return (id)[NSNumber numberWithInteger:[number integerValue]*[number integerValue]];
 	}];
 	STAssertNotNil(mapped, @"Mapped result should be non-nil");
+		
+	for (NSInteger i = 0; i < count; i++)
+		STAssertEquals([[mapped objectAtIndex:i] integerValue], i * i, @"Value should be equal to index squared");
 	
 	free(items);
 }
