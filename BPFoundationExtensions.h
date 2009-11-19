@@ -11,6 +11,7 @@
 #define _BPFOUNDATION_EXTENSIONS_H_
 
 #import "NSArray+BPFoundationExtensions.h"
+#import "NSMutableArray+BPFoundationExtensions.h"
 #import "NSSet+BPFoundationExtensions.h"
 #import "NSDictionary+BPFoundationExtensions.h"
 #import "NSThread+BPFoundationExtensions.h"
