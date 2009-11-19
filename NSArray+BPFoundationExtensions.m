@@ -11,37 +11,49 @@
 #if NS_BLOCKS_AVAILABLE
 - (NSArray *)map:(id (^)(id))block {
 	const NSInteger count = [self count];
-	id items[count];
+	id *items = malloc(sizeof(id)*count);
+	if (!items)
+		return nil;
 	
 	NSInteger i = 0;
 	for (id item in self)
 		items[i++] = block(item);
 	
-	return [NSArray arrayWithObjects:items count:count];
+	NSArray *result = [NSArray arrayWithObjects:items count:count];
+	free(items);
+	return result;
 }
 
 - (NSArray *)select:(BOOL (^)(id))block {
 	const NSInteger count = [self count];
-	id items[count];
+	id *items = malloc(sizeof(id)*count);
+	if (!items)
+		return nil;
 	
 	NSInteger i = 0;
 	for (id item in self)
 		if (block(item))
 			items[i++] = item;
 	
-	return [NSArray arrayWithObjects:items count:i];
+	NSArray *result = [NSArray arrayWithObjects:items count:i];
+	free(items);
+	return result;
 }
 
 - (NSArray *)reject:(BOOL (^)(id))block {
 	const NSInteger count = [self count];
-	id items[count];
+	id *items = malloc(sizeof(id)*count);
+	if (!items)
+		return nil;
 	
 	NSInteger i = 0;
 	for (id item in self)
 		if (!block(item))
 			items[i++] = item;
 	
-	return [NSArray arrayWithObjects:items count:i];
+	NSArray *result = [NSArray arrayWithObjects:items count:i];
+	free(items);
+	return result;
 }
 
 - (NSArray *)reduce:(id (^)(id, id))block withInitialValue:(id)value {
@@ -56,7 +68,9 @@
 	dispatch_group_t group = dispatch_group_create();
 	dispatch_queue_t queue = dispatch_get_current_queue();
 	const NSInteger count = [self count];
-	id items[count];
+	id *items = malloc(sizeof(id)*count);
+	if (!items)
+		return nil;
 	
 	NSInteger i = 0;
 	for (id item in self) {
@@ -68,14 +82,18 @@
 	
 	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
 	
-	return [NSArray arrayWithObjects:items count:count];
+	NSArray *result = [NSArray arrayWithObjects:items count:count];
+	free(items);
+	return result;
 }
 
 - (NSArray *)selectConcurrent:(BOOL (^)(id))block {
 	dispatch_group_t group = dispatch_group_create();
 	dispatch_queue_t queue = dispatch_get_current_queue();
 	const NSInteger count = [self count];
-	id items[count];
+	id *items = malloc(sizeof(id)*count);
+	if (!items)
+		return nil;
 	
 	NSInteger i = 0;
 	for (id item in self) {
@@ -94,14 +112,18 @@
 		if (items[i])
 			compacted[c++] = items[i];
 	
-	return [NSArray arrayWithObjects:items count:c];	
+	NSArray *result = [NSArray arrayWithObjects:items count:c];
+	free(items);
+	return result;
 }
 
 - (NSArray *)rejectConcurrent:(BOOL (^)(id))block {
 	dispatch_group_t group = dispatch_group_create();
 	dispatch_queue_t queue = dispatch_get_current_queue();
 	const NSInteger count = [self count];
-	id items[count];
+	id *items = malloc(sizeof(id)*count);
+	if (!items)
+		return nil;
 	
 	NSInteger i = 0;
 	for (id item in self) {
@@ -120,7 +142,9 @@
 		if (items[i])
 			compacted[c++] = items[i];
 	
-	return [NSArray arrayWithObjects:items count:c];	
+	NSArray *result = [NSArray arrayWithObjects:items count:c];
+	free(items);
+	return result;
 }
 #endif
 
@@ -137,19 +161,25 @@ static NSComparisonResult SortComparator(id first, id second, void *block) {
 
 - (NSArray *)reversedArray {
 	const NSInteger count = [self count];
-	id items[count];
-
+	id *items = malloc(sizeof(id)*count);
+	if (!items)
+		return nil;
+	
 	NSInteger i = count - 1;
 	for (id item in self)
 		items[i--] = item;
 	
-	return [NSArray arrayWithObjects:items count:count];
+	NSArray *result = [NSArray arrayWithObjects:items count:count];
+	free(items);
+	return result;
 }
 
 - (NSArray *)shuffledArray {
 	static BOOL randomized = NO;
 	const NSInteger count = [self count];
-	id items[count];
+	id *items = malloc(sizeof(id)*count);
+	if (!items)
+		return nil;
 	
 	if (!randomized) {
 		srandomdev();
@@ -170,7 +200,9 @@ static NSComparisonResult SortComparator(id first, id second, void *block) {
 		items[index] = tmp;
 	}
 	
-	return [NSArray arrayWithObjects:items count:count];
+	NSArray *result = [NSArray arrayWithObjects:items count:count];
+	free(items);
+	return result;
 }
 
 - (NSArray *)sortedArray {
