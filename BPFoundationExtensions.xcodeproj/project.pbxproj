@@ -18,6 +18,8 @@
 		FC35786610B2055A00A13849 /* NSThread+BPFoundationExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = FC35785D10B2055A00A13849 /* NSThread+BPFoundationExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC35786710B2055A00A13849 /* NSThread+BPFoundationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC35785E10B2055A00A13849 /* NSThread+BPFoundationExtensions.m */; };
 		FC3578FF10B207E000A13849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
+		FC35796010B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = FC35795E10B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.h */; };
+		FC35796110B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC35795F10B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		FC35785C10B2055A00A13849 /* NSDictionary+BPFoundationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+BPFoundationExtensions.m"; sourceTree = "<group>"; };
 		FC35785D10B2055A00A13849 /* NSThread+BPFoundationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSThread+BPFoundationExtensions.h"; sourceTree = "<group>"; };
 		FC35785E10B2055A00A13849 /* NSThread+BPFoundationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+BPFoundationExtensions.m"; sourceTree = "<group>"; };
+		FC35795E10B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+BPFoundationExtensions.h"; sourceTree = "<group>"; };
+		FC35795F10B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+BPFoundationExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 				FC35785C10B2055A00A13849 /* NSDictionary+BPFoundationExtensions.m */,
 				FC35785D10B2055A00A13849 /* NSThread+BPFoundationExtensions.h */,
 				FC35785E10B2055A00A13849 /* NSThread+BPFoundationExtensions.m */,
+				FC35795E10B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.h */,
+				FC35795F10B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -142,6 +148,7 @@
 				FC35786210B2055A00A13849 /* NSSet+BPFoundationExtensions.h in Headers */,
 				FC35786410B2055A00A13849 /* NSDictionary+BPFoundationExtensions.h in Headers */,
 				FC35786610B2055A00A13849 /* NSThread+BPFoundationExtensions.h in Headers */,
+				FC35796010B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +212,7 @@
 				FC35786310B2055A00A13849 /* NSSet+BPFoundationExtensions.m in Sources */,
 				FC35786510B2055A00A13849 /* NSDictionary+BPFoundationExtensions.m in Sources */,
 				FC35786710B2055A00A13849 /* NSThread+BPFoundationExtensions.m in Sources */,
+				FC35796110B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
