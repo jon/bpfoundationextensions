@@ -51,6 +51,79 @@
 	return value;
 }
 
+#if MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_6
+- (NSArray *)mapConcurrent:(id (^)(id))block {
+	dispatch_group_t group = dispatch_group_create();
+	dispatch_queue_t queue = dispatch_get_current_queue();
+	const NSInteger count = [self count];
+	id items[count];
+	
+	NSInteger i = 0;
+	for (id item in self) {
+		id *result = &items[i++];
+		dispatch_group_async(group, queue, ^{
+			*result = block(item);
+		});
+	}
+	
+	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+	
+	return [NSArray arrayWithObjects:items count:count];
+}
+
+- (NSArray *)selectConcurrent:(BOOL (^)(id))block {
+	dispatch_group_t group = dispatch_group_create();
+	dispatch_queue_t queue = dispatch_get_current_queue();
+	const NSInteger count = [self count];
+	id items[count];
+	
+	NSInteger i = 0;
+	for (id item in self) {
+		id *result = &items[i++];
+		dispatch_group_async(group, queue, ^{
+			*result = block(item) ? item : nil;
+		});
+	}
+	
+	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+	
+	id compacted[count];
+	
+	NSInteger c = 0;
+	for (i = 0; i < count; i++)
+		if (items[i])
+			compacted[c++] = items[i];
+	
+	return [NSArray arrayWithObjects:items count:c];	
+}
+
+- (NSArray *)rejectConcurrent:(BOOL (^)(id))block {
+	dispatch_group_t group = dispatch_group_create();
+	dispatch_queue_t queue = dispatch_get_current_queue();
+	const NSInteger count = [self count];
+	id items[count];
+	
+	NSInteger i = 0;
+	for (id item in self) {
+		id *result = &items[i++];
+		dispatch_group_async(group, queue, ^{
+			*result = !block(item) ? item : nil;
+		});
+	}
+	
+	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+	
+	id compacted[count];
+	
+	NSInteger c = 0;
+	for (i = 0; i < count; i++)
+		if (items[i])
+			compacted[c++] = items[i];
+	
+	return [NSArray arrayWithObjects:items count:c];	
+}
+#endif
+
 static NSComparisonResult SortComparator(id first, id second, void *block) {
 	NSComparisonResult (^comparator)(id, id) = block;
 	

@@ -15,6 +15,12 @@
 - (NSArray *)reject:(BOOL (^)(id))block;
 - (id)reduce:(id (^)(id, id))block withInitialValue:(id)value;
 
+#if MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_6
+- (NSArray *)mapConcurrent:(id (^)(id))block;
+- (NSArray *)selectConcurrent:(BOOL (^)(id))block;
+- (NSArray *)rejectConcurrent:(BOOL (^)(id))block;
+#endif
+
 - (NSArray *)sort:(NSComparisonResult (^)(id, id))comparator;
 #endif
 
