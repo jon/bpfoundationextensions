@@ -10,6 +10,7 @@
 
 @implementation NSDictionary (BPFoundationExtensions)
 
+#if NS_BLOCKS_AVAILABLE
 - (NSArray *)map:(id (^)(id, id))block {
 	NSMutableArray *result = [NSMutableArray arrayWithCapacity:[self count]];
 	
@@ -21,7 +22,7 @@
 	return result;
 }
 
-- (id)inject:(id (^)(id, id, id))block withInitialValue:(id)value {
+- (id)reduce:(id (^)(id, id, id))block withInitialValue:(id)value {
 	for (id key in self) {
 		id object = [self objectForKey:key];
 		
@@ -30,6 +31,7 @@
 	
 	return value;
 }
+#endif
 			  
 
 @end

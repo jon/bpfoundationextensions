@@ -8,6 +8,7 @@
 
 @implementation NSArray (BPFoundationExtensions)
 
+#if NS_BLOCKS_AVAILABLE
 - (NSArray *)map:(id (^)(id))block {
 	const NSInteger count = [self count];
 	id items[count];
@@ -59,6 +60,7 @@ static NSComparisonResult SortComparator(id first, id second, void *block) {
 - (NSArray *)sort:(NSComparisonResult (^)(id, id))comparator {
 	return [self sortedArrayUsingFunction:SortComparator context:comparator];
 }
+#endif
 
 - (NSArray *)reversedArray {
 	const NSInteger count = [self count];
@@ -115,6 +117,7 @@ static NSComparisonResult SortComparator(id first, id second, void *block) {
 	return result;
 }
 
+#if NS_BLOCKS_AVAILABLE
 - (NSArray *)mapSelector:(SEL)selector {
 	return [self map:^(id object) {
 		return [object performSelector:selector];
@@ -132,7 +135,36 @@ static NSComparisonResult SortComparator(id first, id second, void *block) {
 		return [object performSelector:selector withObject:argument withObject:secondArgument];
 	}];
 }
+#else
+- (NSArray *)mapSelector:(SEL)selector {
+	NSMutableArray *result = [NSMutableArray array];
+	
+	for (id item in self)
+		[result addObject:[item performSelector:selector]];
 
+	return result;
+}
+
+- (NSArray *)mapSelector:(SEL)selector withArgument:(id)argument {
+	NSMutableArray *result = [NSMutableArray array];
+	
+	for (id item in self)
+		[result addObject:[item performSelector:selector withObject:argument]];
+	
+	return result;
+}
+
+- (NSArray *)mapSelector:(SEL)selector withArgument:(id)argument withArgument:(id)secondArgument {
+	NSMutableArray *result = [NSMutableArray array];
+	
+	for (id item in self)
+		[result addObject:[item performSelector:selector withObject:argument withObject:secondArgument]];
+	
+	return result;
+}
+#endif
+
+#if NS_BLOCKS_AVAILABLE
 - (NSDictionary *)dictionaryByApplyingBlock:(id (^)(id))block {
 	NSMutableArray *keys = [NSMutableArray arrayWithCapacity:[self count]];
 	
@@ -141,6 +173,7 @@ static NSComparisonResult SortComparator(id first, id second, void *block) {
 
 	return [NSDictionary dictionaryWithObjects:self forKeys:keys];
 }
+#endif
 
 - (NSDictionary *)dictionaryByApplyingSelector:(SEL)selector {
 	NSMutableDictionary *map = [NSMutableDictionary dictionary];

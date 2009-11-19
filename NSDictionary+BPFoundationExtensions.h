@@ -11,7 +11,9 @@
 
 @interface NSDictionary (BPFoundationExtensions)
 
+#if NS_BLOCKS_AVAILABLE
 - (NSArray *)map:(id (^)(id, id))block;
-- (id)inject:(id (^)(id, id, id))block withInitialValue:(id)value;
+- (id)reduce:(id (^)(id, id, id))block withInitialValue:(id)value;
+#endif
 
 @end

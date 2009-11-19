@@ -11,6 +11,7 @@
 
 @implementation NSMutableArray (BPFoundationExtensions)
 
+#if NS_BLOCKS_AVAILABLE
 - (void)mapInPlace:(id (^)(id))block {
 	[self setArray:[self map:block]];
 }
@@ -26,6 +27,7 @@
 - (void)sortInPlace:(NSComparisonResult (^)(id, id))comparator {
 	[self setArray:[self sort:comparator]];
 }
+#endif
 
 - (void)reverse {
 	[self setArray:[self reversedArray]];

@@ -11,11 +11,13 @@
 
 @interface NSMutableArray (BPFoundationExtensions)
 
+#if NS_BLOCKS_AVAILABLE
 - (void)mapInPlace:(id (^)(id))block;
 - (void)selectInPlace:(BOOL (^)(id))block;
 - (void)rejectInPlace:(BOOL (^)(id))block;
 
 - (void)sortInPlace:(NSComparisonResult (^)(id, id))comparator;
+#endif
 
 - (void)reverse;
 - (void)shuffle;
