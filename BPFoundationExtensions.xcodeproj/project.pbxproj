@@ -496,10 +496,10 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = coop.plausible.blocks.compilers.gcc.4_2;
+				GCC_VERSION = 4.2;
 				PREBINDING = NO;
 				PRODUCT_NAME = iPhoneBPFoundationExtensions;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
