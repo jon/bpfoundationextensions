@@ -33,6 +33,10 @@
 		FC357AD510B4E20C00A13849 /* NSMutableArray+BPFoundationExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = FC35795E10B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.h */; };
 		FC357AD610B4E20D00A13849 /* NSSet+BPFoundationExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = FC35785910B2055A00A13849 /* NSSet+BPFoundationExtensions.h */; };
 		FC357AD710B4E20E00A13849 /* NSThread+BPFoundationExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = FC35785D10B2055A00A13849 /* NSThread+BPFoundationExtensions.h */; };
+		FCBD875F132C5EAC000D994B /* BPPrimitiveArray.h in Headers */ = {isa = PBXBuildFile; fileRef = FCBD875D132C5EAC000D994B /* BPPrimitiveArray.h */; };
+		FCBD8760132C5EAC000D994B /* BPPrimitiveArray.h in Headers */ = {isa = PBXBuildFile; fileRef = FCBD875D132C5EAC000D994B /* BPPrimitiveArray.h */; };
+		FCBD8761132C5EAC000D994B /* BPPrimitiveArray.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBD875E132C5EAC000D994B /* BPPrimitiveArray.m */; };
+		FCBD8762132C5EAC000D994B /* BPPrimitiveArray.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBD875E132C5EAC000D994B /* BPPrimitiveArray.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +61,8 @@
 		FC357A0810B4D3AE00A13849 /* NSArrayExtensionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayExtensionsTest.h; sourceTree = "<group>"; };
 		FC357A0910B4D3AE00A13849 /* NSArrayExtensionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayExtensionsTest.m; sourceTree = "<group>"; };
 		FC357AC510B4E1A600A13849 /* libiPhoneBPFoundationExtensions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiPhoneBPFoundationExtensions.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCBD875D132C5EAC000D994B /* BPPrimitiveArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPrimitiveArray.h; sourceTree = "<group>"; };
+		FCBD875E132C5EAC000D994B /* BPPrimitiveArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPrimitiveArray.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +147,8 @@
 				FC35785E10B2055A00A13849 /* NSThread+BPFoundationExtensions.m */,
 				FC35795E10B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.h */,
 				FC35795F10B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.m */,
+				FCBD875D132C5EAC000D994B /* BPPrimitiveArray.h */,
+				FCBD875E132C5EAC000D994B /* BPPrimitiveArray.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -191,6 +199,7 @@
 				FC35786410B2055A00A13849 /* NSDictionary+BPFoundationExtensions.h in Headers */,
 				FC35786610B2055A00A13849 /* NSThread+BPFoundationExtensions.h in Headers */,
 				FC35796010B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.h in Headers */,
+				FCBD875F132C5EAC000D994B /* BPPrimitiveArray.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +213,7 @@
 				FC357AD510B4E20C00A13849 /* NSMutableArray+BPFoundationExtensions.h in Headers */,
 				FC357AD610B4E20D00A13849 /* NSSet+BPFoundationExtensions.h in Headers */,
 				FC357AD710B4E20E00A13849 /* NSThread+BPFoundationExtensions.h in Headers */,
+				FCBD8760132C5EAC000D994B /* BPPrimitiveArray.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +284,11 @@
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "BPFoundationExtensions" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* BPFoundationExtensions */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
@@ -331,6 +345,7 @@
 				FC35786510B2055A00A13849 /* NSDictionary+BPFoundationExtensions.m in Sources */,
 				FC35786710B2055A00A13849 /* NSThread+BPFoundationExtensions.m in Sources */,
 				FC35796110B4BB2C00A13849 /* NSMutableArray+BPFoundationExtensions.m in Sources */,
+				FCBD8761132C5EAC000D994B /* BPPrimitiveArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +366,7 @@
 				FC357ACF10B4E1FC00A13849 /* NSMutableArray+BPFoundationExtensions.m in Sources */,
 				FC357AD010B4E1FC00A13849 /* NSDictionary+BPFoundationExtensions.m in Sources */,
 				FC357AD110B4E1FD00A13849 /* NSArray+BPFoundationExtensions.m in Sources */,
+				FCBD8762132C5EAC000D994B /* BPPrimitiveArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,7 +515,7 @@
 				GCC_VERSION = 4.2;
 				PREBINDING = NO;
 				PRODUCT_NAME = iPhoneBPFoundationExtensions;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -510,10 +526,10 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_VERSION = coop.plausible.blocks.compilers.gcc.4_2;
+				GCC_VERSION = "";
 				PREBINDING = NO;
 				PRODUCT_NAME = iPhoneBPFoundationExtensions;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos;
 				ZERO_LINK = NO;
 			};
 			name = Release;
