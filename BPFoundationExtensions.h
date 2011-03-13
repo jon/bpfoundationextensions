@@ -15,6 +15,7 @@
 #import "NSSet+BPFoundationExtensions.h"
 #import "NSDictionary+BPFoundationExtensions.h"
 #import "NSThread+BPFoundationExtensions.h"
+#import "BPPrimitiveArray.h"
 
 
 #endif
